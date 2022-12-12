@@ -1,0 +1,21 @@
+sudo: required
+services:
+      - docker
+
+before_insatll:
+      - docker build -t dockerci -f Dockerfile.dev .
+script:
+      - docker run -e CI=true dockerci
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $ACCESS_KEY_ID
+  secret_access_key:
+    secure: "$SECRET_ACCESS_KEY"
+  region: "us-east-1"
+  app: "docker-seasons"
+  env: "Dockerseasons-env"
+  bucket_name: "elasticbeanstalk-us-east-1-184329978736"
+  bucket_path: "docker-seasons"
+  on:
+     branch: main
