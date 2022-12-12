@@ -7,7 +7,7 @@ else return lat>0?'winter':'summer';
 const SeasonDisplay = (props,month) => {
   
   const season= getSeason(props.lat,new Date().getMonth())
-  const text = season==='winter'?"Burr its cold out there really":"Let's hit the beach yeah!!"
+  const text = season==='winter'?"Burr its cold out there really winterrrr":"Let's hit the beach yeah!!"
   const icon = season==='winter'?"snowflake":"sun"
 
   return <div className={`${season} seasonDisplay`}>
