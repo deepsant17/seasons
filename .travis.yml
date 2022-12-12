@@ -4,7 +4,7 @@ services:
 before_install:
       - docker build -t dockerci -f Dockerfile.dev .
 script:
-      - docker run -e CI=true dockerci
+      - docker run -e CI=true dockerci npm run start
 
 deploy:
   provider: elasticbeanstalk
