@@ -1,11 +1,8 @@
-sudo: required
 services:
       - docker
 
 before_install:
-      - docker build -t dockerci -f Dockerfile.dev .
-script:
-      - docker run -e CI=true dockerci
+      - docker build -t dockerseason -f Dockerfile.dev .
 
 deploy:
   provider: elasticbeanstalk
