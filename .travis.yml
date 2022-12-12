@@ -1,7 +1,7 @@
 services:
       - docker
 
-before_insatll:
+before_install:
       - docker build -t dockerci -f Dockerfile.dev .
 script:
       - docker run dockerci
