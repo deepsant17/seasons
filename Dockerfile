@@ -1,9 +1,9 @@
 FROM node:alpine as thanksforthis
 WORKDIR /var/app
 COPY package.json ./
-RUN yarn
+RUN npm install
 COPY ./ ./
-RUN yarn build
+RUN npm run build
 
 
 FROM nginx
